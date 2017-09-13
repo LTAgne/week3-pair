@@ -13,7 +13,8 @@ public class DollarAmount {
     public int getCents() {
         return (int)(totalAmountInCents % 100);
     }
-    
+ 
+	
     public int getDollars() {
         return totalAmountInCents / 100;
     }
@@ -69,5 +70,6 @@ public class DollarAmount {
     public int hashCode() {
     	return totalAmountInCents;
     }
+  
     
 }
