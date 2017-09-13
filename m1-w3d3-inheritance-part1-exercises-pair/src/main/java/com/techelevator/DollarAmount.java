@@ -1,13 +1,17 @@
 package com.techelevator;
 
 public class DollarAmount {
-
+	
     public static final DollarAmount ZERO_DOLLARS = new DollarAmount(0);
     
     private int totalAmountInCents;
     
     public DollarAmount(int totalAmountInCents) {
         this.totalAmountInCents = totalAmountInCents;
+    }
+    
+    public DollarAmount(int dollars, int cents){               //constructor for both dollars and cents
+    	this.totalAmountInCents = (dollars * 100) + cents; 
     }
     
     public int getCents() {
@@ -55,6 +59,20 @@ public class DollarAmount {
             return 0;
         }
     }
+    
+    @Override                                              //override of toString to format required 
+    public String toString() {
+    	String result = "";
+   // 	if (isNegative()){
+    //		result += "-";
+    	//}
+    	result += "$" + getDollars() + ".";
+    	if (getCents()< 10){
+    		result += "0"; 
+    	}
+    	return  result + Math.abs(getCents());
+    }
+
     
     @Override
     public boolean equals(Object obj) {
